@@ -1,0 +1,146 @@
+body{
+  background-color: #dcdcdc;
+}
+.container{
+  width: 1200px;
+  margin: 0 auto;
+}
+.back{
+  background-color: whitesmoke;
+  width: 100vh;
+  height: 100vh;
+}
+
+.icon{
+  font-size: 250px;
+}
+.parkingString{
+  color: #7ad901;
+  font-size: 130px;
+}
+.logoGroupe{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.input{
+  height: 30px;
+  border-radius: 10px;
+  outline: 3px;
+  border:3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #adabab;
+  cursor: pointer;
+  &:hover{
+    background-color: gray;
+  }
+}
+.topString{
+  font-size: 15px;
+  font-weight: bold;
+}
+.inputBlock{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: end;
+}
+.inputBlockMain{
+  display: flex;
+  gap:10px
+}
+.btn{
+  background-color: #7ad901;
+  border-radius: 10px;
+  padding: 6px 15px 6px 15px;
+  cursor: pointer;
+  &:hover{
+    background-color: #6fbf01;
+  }
+}
+.btnString{
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+.btnCont{
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 220px;
+}
+.mainTopBar{
+  height: 50px;
+  background-color: #242424;
+}
+.logo{
+  color: #7ad901;
+  font-size: 33px;
+  cursor: pointer;
+}
+.parkBlock{
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 600px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.carString{
+  display: flex;
+}
+.carStringIndex{
+  border: 1px solid black;
+  border-bottom-left-radius:7px ;
+  border-top-left-radius:7px ;
+  padding: 5px 10px 5px 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+.carStringNumber{
+  border: 1px solid black;
+  padding: 5px 10px 5px 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+.carStringTime{
+  border: 1px solid black;
+  padding: 5px 10px 5px 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+.carStringPaidSum{
+  border: 1px solid black;
+  padding: 5px 10px 5px 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+.tab{
+  border: 1px solid black;
+  padding: 5px 10px 5px 10px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.tabHeader{
+  background-color: #dcdcdc;
+}
+td{
+  &:first-child{
+    border-bottom-left-radius:7px ;
+    border-top-left-radius:7px ;
+  }
+  &:last-child{
+    border-bottom-right-radius:7px ;
+    border-top-right-radius:7px ;
+  }
+}
