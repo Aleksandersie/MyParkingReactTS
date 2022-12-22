@@ -3,7 +3,6 @@ import {CiLogin} from 'react-icons/ci'
 import './style.scss'
 import {Route,Routes,Link,useNavigate} from 'react-router-dom'
 
-import MainPage from './MainPage';
 
 const AuthPage:React.FC = () => {
     const navigate = useNavigate();

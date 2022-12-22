@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import AuthPage from "./Pages/AuthPage";
+import AuthPage from "./pages/AuthPage";
 import {Route, Routes} from "react-router-dom";
-import MainPage from "./Pages/MainPage";
+import MainPage from "./pages/MainPage";
 
 function App() {
 

@@ -72,6 +72,10 @@ body{
   margin: 0 auto;
   margin-top: 50px;
   width: 220px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
 }
 .mainTopBar{
   height: 50px;
@@ -85,7 +89,7 @@ body{
 .parkBlock{
   margin: 0 auto;
   margin-top: 50px;
-  width: 600px;
+  width: 750px;
   padding: 10px 20px 10px 20px;
   border-radius: 10px;
   background-color: white;
@@ -142,5 +146,29 @@ td{
   &:last-child{
     border-bottom-right-radius:7px ;
     border-top-right-radius:7px ;
+  }
+}
+.tabBody{
+  margin:  0 auto;
+}
+.iconBlock{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+.iconColor{
+  color: #7ad901;
+}
+.paidText{
+  font-weight: 700;
+  font-size: 16px;
+}
+.completeParking{
+  background-color: #7ad901;
+  cursor: pointer;
+  color: white;
+  &:hover{
+    background-color: #6fbf01;
   }
 }
