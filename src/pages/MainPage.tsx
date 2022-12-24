@@ -23,7 +23,7 @@ const MainPage = () => {
     const carNumberRef = React.useRef<any>(null)
     async function startParking(){
         await axios.post('http://localhost:5000/cars', {carNumber:carNumberRef.current.value,startTime:moment()})
-            .then(()=>getCar())
+            .then(()=>get().then(data=>setCar(data)))
     }
 
     async function getCar(){
@@ -31,10 +31,12 @@ const MainPage = () => {
     }
 
     async function comp(id:number){
-        await complete(id)
-            .then(()=>get()
-                .then(data=>setCar(data))
-            )
+       if(window.confirm("Завершить парковку?")){
+            await complete(id)
+                .then(()=>get()
+                    .then(data=>setCar(data))
+                )
+        }
     }
 
     return (
