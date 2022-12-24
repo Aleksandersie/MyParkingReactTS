@@ -4,7 +4,7 @@ import moment from "moment";
 import CarString from "../components/CarString/CarString";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import {complete, get} from "../axios/axios";
+import {complete, get,start} from "../axios/axios";
 
 export interface ICar{
     id:number,
@@ -22,8 +22,10 @@ const MainPage = () => {
 
     const carNumberRef = React.useRef<any>(null)
     async function startParking(){
-        await axios.post('http://localhost:5000/cars', {carNumber:carNumberRef.current.value,startTime:moment()})
-            .then(()=>get().then(data=>setCar(data)))
+        start(carNumberRef.current.value,String(moment())).then(()=>get().then(data=>setCar(data)))
+
+        // await axios.post('http://localhost:5000/cars', {carNumber:carNumberRef.current.value,startTime:moment()})
+        //     .then(()=>get().then(data=>setCar(data)))
     }
 
     async function getCar(){

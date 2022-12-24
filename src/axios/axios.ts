@@ -15,3 +15,4 @@ export const get = async function (){
     const {data} = await axios.get<ICar[]>('http://localhost:5000/cars')
     return data
 }
+
