@@ -16,3 +16,8 @@ export const get = async function (){
     return data
 }
 
+export const getPrice = async function (){
+    const {data} = await axios.get('http://localhost:5000/price')
+    return data
+}
+

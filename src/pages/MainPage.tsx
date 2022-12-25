@@ -4,7 +4,7 @@ import moment from "moment";
 import CarString from "../components/CarString/CarString";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import {complete, get,start} from "../axios/axios";
+import {complete, get, getPrice, start} from "../axios/axios";
 
 export interface ICar{
     id:number,
@@ -15,8 +15,9 @@ export interface ICar{
 const MainPage = () => {
     const navigate = useNavigate()
     const [car,setCar] = useState<ICar[]>([])
-
+    const [parkingPrice,setParkingPrice] = useState<number>(60)
     useEffect(()=>{
+        getPrice().then(data=>setParkingPrice(data.price))
         getCar()
     },[setCar])
 
@@ -68,7 +69,7 @@ const MainPage = () => {
                             <td className={"tab tabHeader"}>Завершить</td>
                         </tr>
                         {car.map((car: ICar , index)=>(
-                            <CarString car={car} index={index} comp={comp} key={car.id}/>
+                            <CarString car={car} index={index} comp={comp} key={car.id} price={parkingPrice}/>
                         ))}
                     </table>
 

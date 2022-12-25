@@ -9,17 +9,18 @@ import {complete} from "../../axios/axios";
 export interface ICarString{
     index?:number,
     car: ICar,
+    price:number
     comp:(id:number)=>void
 }
 
 
-const CarString:React.FC<ICarString> = ({car,index,comp}) => {
+const CarString:React.FC<ICarString> = ({car,index,comp,price}) => {
     const startTime = moment(car.startTime)
     const minutes = moment().diff(startTime, 'minutes')
 
     let min = minutes % 60
     let hours = (minutes-min)/60
-    let hoursToPaid = Math.ceil( minutes/60)*60
+    let hoursToPaid = Math.ceil( minutes/60)*price
 
     // async function completeParking(id:number){
     //     await complete(id)
