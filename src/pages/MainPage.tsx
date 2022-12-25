@@ -4,7 +4,7 @@ import moment from "moment";
 import CarString from "../components/CarString/CarString";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
-import {complete, get, getPrice, start} from "../axios/axios";
+import {changePrice, complete, get, getPrice, start} from "../axios/axios";
 
 export interface ICar{
     id:number,
@@ -16,21 +16,16 @@ const MainPage = () => {
     const navigate = useNavigate()
     const [car,setCar] = useState<ICar[]>([])
     const [parkingPrice,setParkingPrice] = useState<number>(0)
+
     useEffect(()=>{
         getPrice().then(data=>setParkingPrice(data.price))
-        getCar()
+        get().then(data=>setCar(data))
     },[setCar])
 
     const carNumberRef = React.useRef<any>(null)
+
     async function startParking(){
         start(carNumberRef.current.value,String(moment())).then(()=>get().then(data=>setCar(data)))
-
-        // await axios.post('http://localhost:5000/cars', {carNumber:carNumberRef.current.value,startTime:moment()})
-        //     .then(()=>get().then(data=>setCar(data)))
-    }
-
-    async function getCar(){
-        get().then(data=>setCar(data))
     }
 
     async function comp(id:number){
@@ -40,6 +35,13 @@ const MainPage = () => {
                     .then(data=>setCar(data))
                 )
         }
+    }
+
+    async function change(){
+        const value = prompt("Введите новую стоимость")
+         await changePrice(Number(value))
+         await getPrice().then(data=>setParkingPrice(data.price))
+
     }
 
     return (
@@ -53,9 +55,11 @@ const MainPage = () => {
             <div className={'container'}>
                 <div className={"btnCont"}>
                     <div className={"btn"}><p className={"btnString"} onClick={startParking}>Добавить машину</p></div>
-                    {/*<div className={"btn"}><p className={"btnString"} onClick={getCar}>Загрузить машины</p></div>*/}
                         <p>Номер машины</p>
-                        <input type="text" ref={carNumberRef} className={"input"} />
+                        <input type="text" ref={carNumberRef} className={"input priceInput"} />
+                    <hr/>
+                    <p>Стоимость часа: {parkingPrice} р.</p>
+                    <div className={"btn"} onClick={change}>Сменить стоимость</div>
                 </div>
 
                 <div className={"parkBlock"}>

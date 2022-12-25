@@ -21,3 +21,10 @@ export const getPrice = async function (){
     return data
 }
 
+export const changePrice = async function (price:number){
+    const {data} = await axios.put('http://localhost:5000/price', {price})
+    return data
+}
+
+
+
