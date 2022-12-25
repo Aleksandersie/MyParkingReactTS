@@ -15,7 +15,7 @@ export interface ICar{
 const MainPage = () => {
     const navigate = useNavigate()
     const [car,setCar] = useState<ICar[]>([])
-    const [parkingPrice,setParkingPrice] = useState<number>(60)
+    const [parkingPrice,setParkingPrice] = useState<number>(0)
     useEffect(()=>{
         getPrice().then(data=>setParkingPrice(data.price))
         getCar()
