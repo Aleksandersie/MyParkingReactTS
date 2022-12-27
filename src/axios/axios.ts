@@ -26,5 +26,10 @@ export const changePrice = async function (price:number){
     return data
 }
 
+export const loginUser = async function (login:string|undefined){
+    const {data} = await axios.post('http://localhost:5000/user', {login})
+    return data
+}
+
 
 
